@@ -1,0 +1,15 @@
+# Informações Adicionais
+
+Created by: Cizé Lucas
+Last edited: June 11, 2024 9:39 PM
+
+**Principais brokers do mercado:** Mosquitto, HivEMQ, Apache ActiveMQ, o RabbitMQ e o IBM MessageSight
+
+**Intervalo de Keep Alive:** Serve para inferir sobre a conexão entre o broker e cliente, informando o tempo em que o broker pode esperar alguma informação do cliente via mensagem MQTT ou ping, se esse tempo for ultrapassado 1.5x sem nenhuma atualização por parte do cliente, o broker vai considera-lo desconectado.
+
+**Persistência de mensagens:** Se refere a possibilidade do broker salvar mensagens para serem entregues no momento em que o cliente se inscrever no tópico. Note que apenas uma mensagem persistente será salva no broker, ou seja, apenas a última mensagem enviada no tópico será armazenada e a única forma de apaga-la será enviar uma mensagem MQTT persistente vazia, caso sua necessidade seja armazenar várias mensagens em um tópico será necessário implementar essa funcionalidade de forma externa. 
+
+**Mensagens Will:** são mensagens configuradas pelo cliente no broker no momento em está se conectando e são enviadas no momento em que o cliente se desconecta. Você pode configurar a mensagem (payload), tópico,  QoS e se essa mensagem deve ser retida (persistência) dessa mensagem no cliente e servem para inferir sobre o status de conexão do cliente. 
+Observação: geralmente esse envio é feito no tópico {nomeDoCliente}/status.
+
+**Sessões “Clean” e Persistentes:** Configuram o modo operante do broker e cliente com relação a conexão entre eles. Sessões persistentes permitem que as mensagens com QoS 1 e 2 sejam armazenadas temporariamente enquanto a conexão entre ambas as partes não é estabilizada, ou seja, caso eu, cliente A, esteja temporariamente desconectado e tivesse uma sessão persistente com um broker, no momento que houver a reconexão, todas as minhas mensagens acumuladas que não tiveram o recebimento sinalizado pelo broker serão enviadas e, por sua vez, todas as mensagens que o broker recebeu nos tópicos que estou inscrito e que eu não sinalizei o recebimento serão enviadas para mim. Note que isso é feito através do ID do cliente, ou seja, se esse ID se alterar, o benefício das sessões persistentes será perdido, além disso, sessões persistentes são particularmente úteis a clientes com baixo poder de processamento porque o broker também armazena informações do cliente como tópicos em que ele já estava inscrito, simplificando e agilizando o processo de conexão. Por sua vez, Sessões “Clean” ou limpas não trazem esses benefícios e são geralmente usadas com clientes que apenas fazem publicações de informações não críticas ou para clientes que apenas trabalham com mensagens de QoS 0. Vale ressaltar que não se deve utilizar sessões persistentes para todos os clientes conectados pois apesar de seus benefícios serem interessantes, quando escalamos nosso sistema para milhares de clientes, o broker consumirá mais espaço de armazenamento e processamento, podendo causar lentidão no sistema MQTT.
