@@ -1,16 +1,19 @@
-# README GitHub
+# **Workshop: “Protocolo MQTT - Desenvolvendo seu Próprio Sistema de IoT”**
 
-Created by: Cizé Lucas
-Last edited: June 13, 2024 5:07 PM
+## Workshop: “MQTT Protocol - Developing Your Own IoT System”
 
-# **Workshop “Protocolo MQTT: Desenvolvendo seu próprio sistema de IOT”**
+### Apresentação
 
-### Workshop “MQTT Protocol: Developing your own IOT system”
+Esta apresentação foi feita para o evento Tech Talk, organizado pelo **PET (Programa de Educação Tutorial)** do curso de Engenharia de Computação da **UFC (Universidade Federal do Ceará)**, Campus Sobral.
 
-## Apresentação feita para o Evento Teck Talk, organizado pelo PET (Programa de Educação Tutorial) do curso de Engenharia de Computação da UFC (Universidade Federal Do Ceará) Campus Sobral.
+### Objetivo
 
-### Meu intuíto era apresentar o protocolo MQTT, demonstrando suas aplicações, vantagens, funcionamento e particularidades para a aplicação com IOT, assim como apresentar um passo a passo de como implementa-lo, fazendo o deploy do Broker Mosquitto na Azure Cloud e, através do App Android IoT MQTT Dashboard e um ESP32 com sensor DH11 e Módulo de relé,  demonstrar uma aplicação real desse protocolo com Automação Residencial.
+O objetivo era apresentar o protocolo MQTT, demonstrando suas aplicações, vantagens, funcionamento e particularidades para a aplicação em IoT. Também foi apresentado um passo a passo de como implementá-lo, incluindo o deploy do **Broker Mosquitto na Azure Cloud** e, através do aplicativo Android **IoT MQTT Dashboard** e um **ESP32 com sensor DHT11** e módulo de relé, demonstrar uma aplicação real deste protocolo em automação residencial.
 
-Dessa forma, caso esteja nos seus interesses aprender mais sobre esse protocolo e implementar algo do tipo, pode começar lendo as informações disponíveis na pasta “Documentation” desse repositório e sinta-se livre para duplicar o projeto prático que fiz.
+### Conteúdo
 
-##
+Caso tenha interesse em aprender mais sobre este protocolo e implementar algo semelhante, você pode começar lendo as informações disponíveis na pasta [`Documentation`](./Documentation) deste repositório. Sinta-se à vontade para duplicar o projeto prático que desenvolvi.
+
+---
+
+Sinta-se à vontade para contribuir com melhorias ou esclarecer dúvidas por meio das [issues](./issues) do repositório!
